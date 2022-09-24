@@ -70,7 +70,8 @@ class CreateMapActivity : AppCompatActivity(), OnMapReadyCallback {
                 return true
             }
             val places = markers.map{marker -> Place(marker.title, marker.snippet, marker.position.latitude, marker.position.longitude)}
-            val userMap = UserMap("new place", places)//intent.getStringExtra(EXTRA_MAP_TITLE), places)
+            val userMap =
+                intent.getStringExtra(EXTRA_MAP_TITLE)?.let { UserMap(it, places) }//intent.getStringExtra(EXTRA_MAP_TITLE), places)
             val data = Intent()
             data.putExtra(EXTRA_USER_MAP, userMap)
             setResult(Activity.RESULT_OK, data)
@@ -104,9 +105,9 @@ class CreateMapActivity : AppCompatActivity(), OnMapReadyCallback {
         }
 
         // Add a marker in Sydney and move the camera
-        val sydney = LatLng(-34.0, 151.0)
-        mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+        val gizycko = LatLng(54.03, 21.77)
+        //mMap.addMarker(MarkerOptions().position(gizycko).title("Marker in gizycko"))
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(gizycko, 10f))
     }
 
     private fun showAlertDialog(latLng: LatLng) {

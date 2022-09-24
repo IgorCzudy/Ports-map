@@ -5,6 +5,7 @@
       <map>
         <entry key="app/src/main/res/layout/activity_display_map.xml" value="0.17325227963525835" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/dialog_create_map.xml" value="0.17274569402228976" />
         <entry key="app/src/main/res/layout/dialog_create_place.xml" value="0.22916666666666666" />
         <entry key="app/src/main/res/menu/menu_create_.xml" value="0.1" />
         <entry key="app/src/main/res/menu/menu_create_map.xml" value="0.25" />
@@ -16,5 +17,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.17274569402228976" />
+      </ProjectState>
+    </option>
   </component>
 </project>

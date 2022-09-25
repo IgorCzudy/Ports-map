@@ -19,7 +19,7 @@ class DisplayMapActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var mMap: GoogleMap
     private lateinit var binding: ActivityDisplayMapBinding
 
-    private lateinit var userMap: UserMap
+    private lateinit var place: Place
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,9 +27,8 @@ class DisplayMapActivity : AppCompatActivity(), OnMapReadyCallback {
         binding = ActivityDisplayMapBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        userMap = intent.getSerializableExtra(EXTRA_USER_MAP) as UserMap
-        supportActionBar?.title = userMap.title
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
+        place = intent.getSerializableExtra(EXTRA_USER_MAP) as Place
+        supportActionBar?.title = place.title
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
@@ -47,14 +46,9 @@ class DisplayMapActivity : AppCompatActivity(), OnMapReadyCallback {
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
 
-        Log.i("tag", "${userMap.title}")
+        val latLng = LatLng(place.latitude, place.longitude)
+        mMap.addMarker(MarkerOptions().position(latLng).title(place.title).snippet(place.description))
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 10f))
 
-        val boundBuilder = LatLngBounds.Builder()
-        for (place in userMap.places){
-            val latLng = LatLng(place.latitude, place.longitude)
-            mMap.addMarker(MarkerOptions().position(latLng).title(place.title).snippet(place.description))
-            boundBuilder.include(latLng)
-        }
-        mMap.moveCamera(CameraUpdateFactory.newLatLngBounds(boundBuilder.build(), 1000,1000,0))
     }
 }

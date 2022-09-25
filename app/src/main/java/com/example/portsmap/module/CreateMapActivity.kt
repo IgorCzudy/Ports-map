@@ -1,8 +1,14 @@
 package com.example.portsmap.module
 
+import android.Manifest
 import android.app.Activity
+import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.location.Location
+import android.location.LocationListener
+import android.location.LocationManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -12,9 +18,11 @@ import android.view.MenuItem
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.example.portsmap.R
 import com.example.portsmap.databinding.ActivityCreateMapBinding
+import com.google.android.gms.location.LocationServices
 
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -25,7 +33,7 @@ import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.material.snackbar.Snackbar
 
-class CreateMapActivity : AppCompatActivity(), OnMapReadyCallback {
+class CreateMapActivity : AppCompatActivity(), OnMapReadyCallback, LocationListener {
 
     private lateinit var mMap: GoogleMap
     private lateinit var binding: ActivityCreateMapBinding
@@ -34,7 +42,6 @@ class CreateMapActivity : AppCompatActivity(), OnMapReadyCallback {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.i("Cratemap", "111")
 
         binding = ActivityCreateMapBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -70,10 +77,8 @@ class CreateMapActivity : AppCompatActivity(), OnMapReadyCallback {
                 return true
             }
             val places = markers.map{marker -> Place(marker.title, marker.snippet, marker.position.latitude, marker.position.longitude)}
-            val userMap =
-                intent.getStringExtra(EXTRA_MAP_TITLE)?.let { UserMap(it, places) }//intent.getStringExtra(EXTRA_MAP_TITLE), places)
             val data = Intent()
-            data.putExtra(EXTRA_USER_MAP, userMap)
+            data.putExtra(EXTRA_USER_MAP, places[0])
             setResult(Activity.RESULT_OK, data)
             finish()
             return true
@@ -106,6 +111,8 @@ class CreateMapActivity : AppCompatActivity(), OnMapReadyCallback {
 
         // Add a marker in Sydney and move the camera
         val gizycko = LatLng(54.03, 21.77)
+        val fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
+
         //mMap.addMarker(MarkerOptions().position(gizycko).title("Marker in gizycko"))
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(gizycko, 10f))
     }
@@ -132,5 +139,9 @@ class CreateMapActivity : AppCompatActivity(), OnMapReadyCallback {
             markers.add(marker)
             dialog.dismiss()
         }
+    }
+
+    override fun onLocationChanged(p0: Location) {
+        TODO("Not yet implemented")
     }
 }

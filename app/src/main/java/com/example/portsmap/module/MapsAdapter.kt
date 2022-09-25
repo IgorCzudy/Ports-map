@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 class MapsAdapter(val context: Context,
-                  val userMaps: List<UserMap>, val onClickListener: OnClickListener)
+                  val userMaps: List<Place>, val onClickListener: OnClickListener)
     : RecyclerView.Adapter<MapsAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){

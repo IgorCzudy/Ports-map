@@ -18,6 +18,12 @@
         android:theme="@style/Theme.PortsMap"
         tools:targetApi="31">
         <activity
+            android:name=".module.Register"
+            android:exported="false" />
+        <activity
+            android:name=".module.Login"
+            android:exported="false" />
+        <activity
             android:name=".module.SailignBoatFragment"
             android:exported="true">
             <intent-filter>
@@ -57,8 +63,7 @@
             android:label="@string/title_activity_display_map" />
         <activity
             android:name=".module.MainActivity"
-            android:exported="false">
-        </activity>
+            android:exported="false" />
     </application>
 
 </manifest>

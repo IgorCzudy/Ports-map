@@ -63,7 +63,7 @@ class SailignBoatFragment : AppCompatActivity() {
             }
 
             override fun onAnimationEnd(animation: Animator) {
-                val intent = Intent(this@SailignBoatFragment, MainActivity::class.java)
+                val intent = Intent(this@SailignBoatFragment, Login::class.java)
                 startActivity(intent)
             }
 

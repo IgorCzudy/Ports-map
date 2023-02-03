@@ -1,6 +1,7 @@
 package com.example.portsmap.module
 
 import android.animation.Animator
+import android.animation.ArgbEvaluator
 import android.animation.ObjectAnimator
 import android.content.Intent
 import android.os.Bundle
@@ -48,8 +49,8 @@ class SailignBoatFragment : AppCompatActivity() {
 
         val sunsetSkyAnimator: ObjectAnimator = ObjectAnimator
             .ofInt(
-                frameLayout, "backgroundColor", resources.getColor(R.color.sunset_sky),
-                resources.getColor(R.color.night_sky)
+                frameLayout, "backgroundColor" , resources.getColor(R.color.night_sky),
+                resources.getColor(R.color.blue)
             )
             .setDuration(3000)
 
@@ -71,7 +72,8 @@ class SailignBoatFragment : AppCompatActivity() {
                 // TODO Auto-generated method stub
             }
         })
-        heightAnimator.start()
+        sunsetSkyAnimator.setEvaluator(ArgbEvaluator())
         sunsetSkyAnimator.start()
+        heightAnimator.start()
     }
 }

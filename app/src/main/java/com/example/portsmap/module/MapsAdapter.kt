@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.portsmap.R
 
 class MapsAdapter(val context: Context,
                   val userMaps: List<Place>, val onClickListener: OnClickListener)
@@ -19,7 +20,8 @@ class MapsAdapter(val context: Context,
         fun OnItemClick(position: Int)
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(context).inflate(android.R.layout.simple_list_item_1, parent,
+        val view = LayoutInflater.from(context).inflate(
+            R.layout.item, parent,
         false)
         return ViewHolder(view)
     }
@@ -30,8 +32,11 @@ class MapsAdapter(val context: Context,
             Log.i("tag","$position")
             onClickListener.OnItemClick(position)
         }
-        val textViewTitle = holder.itemView.findViewById<TextView>(android.R.id.text1)
+        val textViewTitle = holder.itemView.findViewById<TextView>(R.id.textViewTitle)
+        val textViewDescription = holder.itemView.findViewById<TextView>(R.id.textViewDescription)
         textViewTitle.text = userMap.title
+        textViewDescription.text = userMap.description
+
 
     }
 

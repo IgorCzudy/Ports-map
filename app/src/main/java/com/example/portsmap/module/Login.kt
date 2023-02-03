@@ -59,7 +59,6 @@ class Login : AppCompatActivity() {
             return false
         }
 
-        // check if that user name is in database and check if it's have this passwors
         val db = DBHelper(this, null)
 
         if (db.hasUserNameCorrectPassword(useName, password)){

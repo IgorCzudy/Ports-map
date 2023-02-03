@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.textfield.TextInputLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/blue"
     tools:context=".module.Register">
 
     <LinearLayout
@@ -11,39 +13,69 @@
         android:layout_height="729dp"
         android:orientation="vertical"
         android:padding="15dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="1dp">
-
-        <EditText
-            android:id="@+id/UserNameText"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/username_text_input_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="pass your name" />
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp">
 
-        <EditText
-            android:id="@+id/PasswordText"
+            <EditText
+                android:id="@+id/UserNameText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:textSize="25dp"
+                android:hint="pass your name" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/username_text_input_layout2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="pass your password" />
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp">
+
+            <EditText
+                android:id="@+id/PasswordText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:textSize="25dp"
+
+                android:hint="pass your password" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <Button
             android:id="@+id/CreateAnAcoountButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="create an account" />
+            android:text="create an account"
+            android:padding="8dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:backgroundTint="@color/darkgrey"
+            />
 
         <Button
             android:id="@+id/backButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="back" />
+            android:text="back"
+            android:padding="8dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:backgroundTint="@color/darkgrey"
+            />
     </LinearLayout>
 
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.textfield.TextInputLayout>

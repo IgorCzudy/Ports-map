@@ -63,9 +63,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun generateSampleData(): MutableList<Place> {
         return listOf(
-            Place("Branner Hall", "Best dorm at Stanford", 37.426, -122.163),
-            Place("Gates CS building", "Many long nights in this basement", 37.430, -122.173),
-            Place("Pinkberry", "First date with my wife", 37.444, -122.170)
+            Place("PTTK Wilkasy", "Port w Wilkasach. Opłata 50zł.", 54.00,21.73),
+            Place("Binduga Zimny Kont", "Darmowa binduga w lesie. Piękne miejsce do odpoczynku.", 54.06,21.67),
+            Place("Binduga w zatoce Pali", "Binduga na wyspie", 54.04,21.71),
+            Place("Port Piękna Góra", "Port pod Giżyckiem. Opłata 60zł.", 54.02,21.72),
         ).toMutableList()
     }
 }
+

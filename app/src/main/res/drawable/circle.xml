@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="500.03dp"
+    android:height="642.92dp"
+    android:viewportWidth="500.03"
+    android:viewportHeight="642.92">
+
+        <shape android:shape="oval">
+            <size android:height="120dp" android:width="120dp"/>
+            <gradient android:angle="45" android:startColor="@color/blue" android:endColor="@color/black"/>
+        </shape>
+</vector>
